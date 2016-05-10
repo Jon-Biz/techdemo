@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "babel-node ./test"
-  , "start":"babel-node ./index"
+    "test": "babel-node ./test",
+    "start": "babel-node ./src"
   },
   "babel": {
     "presets": [

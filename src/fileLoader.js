@@ -1,8 +1,6 @@
 import fs from 'fs'
 
-const filename = 'datafile'
-
-export function load(cb) {
+export function load(filename, cb) {
   fs.readFile(filename, 'utf8', function(err, data) {
     if (err) throw err
     cb(data)
@@ -21,8 +19,8 @@ export function parse(data) {
   return parsedResult
 }
 
-export function getData(cb) {
-  load((data) => {
+export function getData(filename, cb) {
+  load(filename, (data) => {
     const result = parse(data)
     cb(result)
   })
