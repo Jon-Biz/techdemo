@@ -109,6 +109,22 @@ test('Graph methods: checkPath', (t) => {
   , `graph of a route through three items with a longer previous route should return ['1', '3', '4']`
     )
 
+  graph = new Graph([['1','3'],['1','2'],['2','3'],['3','4']]).graph
+  result = checkPath({graph, start:'10', end:'4'})
+
+  t.notOk(
+    result
+  , `graph of a route with a non-existent start should return ['1', '3', '4']`
+    )
+
+  graph = new Graph([['1','3'],['1','2'],['2','3'],['3','4']]).graph
+  result = checkPath({graph, start:'1', end:'40'})
+
+  t.notOk(
+    result
+  , `graph of a route with a non-existent end should return ['1', '3', '4']`
+    )
+
   t.end()
 
 })
